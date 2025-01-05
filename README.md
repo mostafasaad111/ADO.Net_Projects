@@ -1,6 +1,6 @@
 # ADO.Net_Projects
 
-## First project 
+## Pizza project 
               using System;
               using System.Windows.Forms;
               
@@ -224,10 +224,60 @@
                           gbCrust.Enabled = true;
                           gbTopping.Enabled = true;
                       }
-              
+
                       private void PizzaOrder_Load(object sender, EventArgs e)
                       {
               
                       }
                   }
               }
+
+## PictureBox Project 
+
+
+
+using System;
+using System.Drawing;
+using System.Windows.Forms;
+using WindowsFormsApp4.Properties;
+
+namespace WindowsFormsApp4
+{
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void textBox5_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void DeskTop_Click(object sender, EventArgs e)
+        {
+            pictureBox1.Image = Resources.g6;
+
+        }
+
+        private void Book_Click(object sender, EventArgs e)
+        {
+            pictureBox1.Image = Resources.g5;
+        }
+
+        private void LoadPicture_Click(object sender, EventArgs e)
+        {
+            pictureBox1.Image = Image.FromFile(@"C:\Users\AAA\Desktop\photo\g1.jpg");
+        }
+    }
+}
+
+              
