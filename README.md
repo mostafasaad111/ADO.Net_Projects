@@ -232,52 +232,128 @@
                   }
               }
 
-## PictureBox Project 
+## PictureBox Project 1 
+
+                      using System;
+                      using System.Drawing;
+                      using System.Windows.Forms;
+                      using WindowsFormsApp4.Properties;
+                      
+                      namespace WindowsFormsApp4
+                      {
+                          public partial class Form1 : Form
+                          {
+                              public Form1()
+                              {
+                                  InitializeComponent();
+                              }
+                      
+                              private void textBox5_TextChanged(object sender, EventArgs e)
+                              {
+                      
+                              }
+                      
+                      
+                      
+                              private void pictureBox1_Click(object sender, EventArgs e)
+                              {
+                      
+                              }
+                      
+                              private void DeskTop_Click(object sender, EventArgs e)
+                              {
+                                  pictureBox1.Image = Resources.g6;
+                      
+                              }
+                      
+                              private void Book_Click(object sender, EventArgs e)
+                              {
+                                  pictureBox1.Image = Resources.g5;
+                              }
+                      
+                              private void LoadPicture_Click(object sender, EventArgs e)
+                              {
+                                  pictureBox1.Image = Image.FromFile(@"C:\Users\AAA\Desktop\photo\g1.jpg");
+                              }
+                          }
+                      }
+
+##   PictureBox Project 2   
+
+                  using PictureBox.Properties;
+                  using System;
+                  using System.Drawing;
+                  using System.Windows.Forms;
+                  
+                  namespace PictureBox
+                  {
+                      public partial class Form1 : Form
+                      {
+                          public Form1()
+                          {
+                              InitializeComponent();
+                          }
+                  
+                          private void rbBoy_CheckedChanged(object sender, EventArgs e)
+                          {
+                              label1.Text = rbBoy.Checked ? rbBoy.Text : string.Empty;
+                              pictureBox1.Image = Resources.boy;
+                          }
+                  
+                          private void rbGirl_CheckedChanged(object sender, EventArgs e)
+                          {
+                              label1.Text = rbGirl.Checked ? rbGirl.Text : string.Empty;
+                              pictureBox1.Image = Resources.Girl;
+                          }
+                  
+                          private void rbPen_CheckedChanged(object sender, EventArgs e)
+                          {
+                              label1.Text = ((RadioButton)sender).Tag.ToString();
+                              pictureBox1.Image = Image.FromFile(@"C:\Users\AAA\Desktop\photo\Pen.png");
+                          }
+                  
+                          private void rbBook_CheckedChanged(object sender, EventArgs e)
+                          {
+                              label1.Text = ((RadioButton)sender).Tag.ToString();
+                              pictureBox1.Image = Image.FromFile(@"C:\Users\AAA\Desktop\photo\g5.png");
+                          }
+                      }
+                  }
+
+## Draw Line 
+
+                using System.Drawing;
+                using System.Windows.Forms;
+                
+                namespace WindowsFormsApp5
+                {
+                    public partial class Form1 : Form
+                    {
+                        public Form1()
+                        {
+                            InitializeComponent();
+                        }
+                
+                        private void Form1_Paint(object sender, PaintEventArgs e)
+                        {
+                            Color Black = Color.FromArgb(255, 0, 0, 0);
+                            Pen Pen = new Pen(Black);
+                            Pen.Width = 10;
+                
+                            //  Pen.DashCap = System.Drawing.Drawing2D.DashStyle.Dash ;
+                            Pen.StartCap = System.Drawing.Drawing2D.LineCap.Round;
+                            Pen.EndCap = System.Drawing.Drawing2D.LineCap.Round;
+                
+                            e.Graphics.DrawLine(Pen, 100, 100, 100, 200);
+                            e.Graphics.DrawRectangle(Pen, 200, 200, 300, 300);
+                            e.Graphics.DrawEllipse(Pen, 200, 50, 100, 120);
+                        }
+                    }
+                }
+
+## 
 
 
 
-using System;
-using System.Drawing;
-using System.Windows.Forms;
-using WindowsFormsApp4.Properties;
-
-namespace WindowsFormsApp4
-{
-    public partial class Form1 : Form
-    {
-        public Form1()
-        {
-            InitializeComponent();
-        }
-
-        private void textBox5_TextChanged(object sender, EventArgs e)
-        {
-
-        }
 
 
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void DeskTop_Click(object sender, EventArgs e)
-        {
-            pictureBox1.Image = Resources.g6;
-
-        }
-
-        private void Book_Click(object sender, EventArgs e)
-        {
-            pictureBox1.Image = Resources.g5;
-        }
-
-        private void LoadPicture_Click(object sender, EventArgs e)
-        {
-            pictureBox1.Image = Image.FromFile(@"C:\Users\AAA\Desktop\photo\g1.jpg");
-        }
-    }
-}
-
-              
