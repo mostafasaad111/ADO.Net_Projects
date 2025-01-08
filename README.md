@@ -881,5 +881,92 @@
                   }
               }
           }
+
+
+
+          
+## Timer 
+
+            
+            using System;
+            using System.Windows.Forms;
+            
+            namespace DateTimePaker
+            {
+                public partial class Timer : Form
+                {
+                    public Timer()
+                    {
+                        InitializeComponent();
+                    }
+                    private int Count = 0;
+                    private void timer1_Tick(object sender, EventArgs e)
+                    {
+                        Count++;
+                        label1.Text = Count.ToString();
+                    }
+            
+                    private void button1_Click(object sender, EventArgs e)
+                    {
+                        timer1.Enabled = true;
+                    }
+            
+                    private void button2_Click(object sender, EventArgs e)
+                    {
+                        timer1.Enabled = false;
+                    }
+            
+                    private void label1_Click(object sender, EventArgs e)
+                    {
+            
+                    }
+                }
+            }
+
+
+## NotifyICON 
+
+          using System;
+          using System.Drawing;
+          using System.Windows.Forms;
+          
+          namespace DateTimePaker
+          {
+              public partial class NotifyIcon : Form
+              {
+                  public NotifyIcon()
+                  {
+                      InitializeComponent();
+                  }
+          
+                  private void button1_Click(object sender, EventArgs e)
+                  {
+                      notifyIcon1.Icon = SystemIcons.Application;
+                      notifyIcon1.BalloonTipIcon = ToolTipIcon.Error;
+                      notifyIcon1.BalloonTipTitle = "This is Title";
+                      notifyIcon1.BalloonTipText = "This is a message";
+                      notifyIcon1.ShowBalloonTip(10000);
+                  }
+          
+                  private void notifyIcon1_MouseDoubleClick(object sender, MouseEventArgs e)
+                  {
+                      MessageBox.Show("BalloonTip Clicked");
+                  }
+              }
+          }
+
+
 ## 
+
+
+
+
+
+
+
+
+
+
+
+
 
