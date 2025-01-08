@@ -663,7 +663,61 @@
                       }
 
 
+## Mask Text Box 
 
+        
+        
+        using System;
+        using System.Windows.Forms;
+        
+        namespace frMaskTextBox
+        {
+            public partial class frMaskTextBox : Form
+            {
+                public frMaskTextBox()
+                {
+                    InitializeComponent();
+                }
+        
+                private void button1_Click(object sender, EventArgs e)
+                {
+                    if (maskedTextBox1.MaskFull)
+                    {
+        
+                    }
+                }
+            }
+        }
 
+## Combo Box 
 
+        using System;
+        using System.Windows.Forms;
+        
+        namespace frMaskTextBox
+        {
+            public partial class CombBox : Form
+            {
+                public CombBox()
+                {
+                    InitializeComponent();
+                }
+        
+                private void button1_Click(object sender, EventArgs e)
+                {
+                    comboBox1.Items.Add("Ali");
+                }
+        
+                private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+                {
+                    MessageBox.Show(comboBox1.Text);
+                }
+        
+                private void CombBox_Load(object sender, EventArgs e)
+                {
+                    comboBox1.SelectedIndex = 1;
+                }
+            }
+        }
 
+## 
