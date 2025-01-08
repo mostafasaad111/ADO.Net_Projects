@@ -720,4 +720,166 @@
             }
         }
 
+## checked box list and link label
+
+          using System.Windows.Forms;
+          
+          namespace LinkLable
+          {
+              public partial class Form1 : Form
+              {
+                  public Form1()
+                  {
+                      InitializeComponent();
+                  }
+          
+                  private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+                  {
+                      linkLabel1.LinkVisited = true;
+                      System.Diagnostics.Process.Start("http://www.ProgrammingAdvices.com");
+          
+                  }
+          
+                  private void button1_Click(object sender, System.EventArgs e)
+                  {
+                      for (int i = 1; i <= 5; i++)
+                      {
+                          checkedListBox1.Items.Add("Items" + i);
+                      }
+                  }
+          
+          
+          
+                  private void CheckAllItems_Click(object sender, System.EventArgs e)
+                  {
+                      for (int i = 0; i < checkedListBox1.Items.Count; i++)
+                      {
+                          checkedListBox1.SetItemChecked(i, true);
+                      }
+                  }
+          
+                  private void UnCheckAllItems_Click(object sender, System.EventArgs e)
+                  {
+                      for (int i = 0; i < checkedListBox1.Items.Count; i++)
+                      {
+                          checkedListBox1.SetItemChecked(i, false);
+                      }
+                  }
+          
+                  private void RemoveThirdItem_Click(object sender, System.EventArgs e)
+                  {
+                      if (checkedListBox1.Items.Count > 2)
+                      {
+                          checkedListBox1.Items.RemoveAt(2);
+                      }
+                  }
+          
+                  private void ShowChecdItems_Click(object sender, System.EventArgs e)
+                  {
+          
+                      if (checkedListBox1.CheckedItems.Count > 0)
+                      {
+                          string CheckedItems = "Checked Items:\n";
+                          for (int i = 0; i < checkedListBox1.CheckedItems.Count; i++)
+                          {
+                              CheckedItems += checkedListBox1.CheckedItems[i].ToString() + " ";
+                          }
+                          MessageBox.Show(CheckedItems, "seclected items", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                      }
+                      else
+                      {
+                          MessageBox.Show("No Items selected.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                      }
+          
+                  }
+          
+                  private void ShowSelectItems_Click(object sender, System.EventArgs e)
+                  {
+                      if (checkedListBox1.SelectedItems.Count > 0)
+                      {
+                          string SelectItems = "Select Items : \n ";
+                          for (int i = 0; i < checkedListBox1.SelectedItems.Count; i++)
+                          {
+                              SelectItems += checkedListBox1.SelectedItems[i].ToString() + " ";
+                          }
+                          MessageBox.Show(SelectItems, "Select Items", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                      }
+                      else
+                      {
+                          MessageBox.Show("No Select Items ", "Select Items", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                      }
+          
+                  }
+              }
+          }
+
+## Date Time Picker 
+            
+            
+            using System;
+            using System.Windows.Forms;
+            
+            namespace DateTimePaker
+            {
+                public partial class DateTimePaker : Form
+                {
+                    public DateTimePaker()
+                    {
+                        InitializeComponent();
+                    }
+            
+                    private void button1_Click(object sender, EventArgs e)
+                    {
+                        MessageBox.Show(dateTimePicker1.Value.ToShortDateString());
+                    }
+            
+                    private void button2_Click(object sender, EventArgs e)
+                    {
+                        MessageBox.Show(dateTimePicker1.Value.ToLongDateString());
+                    }
+            
+                    private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+                    {
+                        label1.Text = dateTimePicker1.Text + Environment.NewLine;
+                        label1.Text += dateTimePicker1.Value.ToString("dd-MMM-yyyy") + Environment.NewLine;
+                        label1.Text += dateTimePicker1.Value.ToString("dddd-MMM-yyyy") + Environment.NewLine;
+                        label1.Text += dateTimePicker1.Value.ToString("MM-dd-yyyy") + Environment.NewLine;
+                        label1.Text += dateTimePicker1.Value.ToString("dd/MM/yy") + Environment.NewLine;
+                        label1.Text += dateTimePicker1.Value.ToString("dddd-dd-MMM-yyyy") + Environment.NewLine;
+                    }
+                }
+            }
+
+## Month Calendar 
+
+          
+          using System;
+          using System.Windows.Forms;
+          
+          namespace DateTimePaker
+          {
+              public partial class MonthCalnder : Form
+              {
+                  public MonthCalnder()
+                  {
+                      InitializeComponent();
+                  }
+          
+                  private void button1_Click(object sender, EventArgs e)
+                  {
+                      MessageBox.Show(monthCalendar1.SelectionRange.ToString());
+                  }
+          
+                  private void button3_Click(object sender, EventArgs e)
+                  {
+                      MessageBox.Show(monthCalendar1.SelectionRange.Start.ToShortDateString());
+                  }
+          
+                  private void button2_Click(object sender, EventArgs e)
+                  {
+                      MessageBox.Show(monthCalendar1.SelectionRange.End.ToShortDateString());
+                  }
+              }
+          }
 ## 
+
