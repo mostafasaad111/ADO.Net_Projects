@@ -1142,14 +1142,222 @@
                       }
                   }
 
+## error Provider 
+          
+          
+          
+          using System.ComponentModel;
+          using System.Windows.Forms;
+          
+          namespace DateTimePaker
+          {
+              public partial class ErrorProvider : Form
+              {
+                  public ErrorProvider()
+                  {
+                      InitializeComponent();
+                  }
+          
+                  private void txtFirstName_Validating(object sender, CancelEventArgs e)
+                  {
+          
+                      // first name 
+                      if (string.IsNullOrWhiteSpace(txtFirstName.Text))
+                      {
+                          e.Cancel = true;
+                          txtFirstName.Focus();
+                          errorProvider1.SetError(txtFirstName, "FirstName Should have a value!");
+          
+                      }
+                      else
+                      {
+                          e.Cancel = false;
+                          errorProvider1.SetError(txtFirstName, "");
+                      }
+          
+                  }
+          
+                  private void txtLastName_Validating_1(object sender, CancelEventArgs e)
+                  {
+          
+                      // last name 
+                      if (string.IsNullOrWhiteSpace(txtLastName.Text))
+                      {
+                          e.Cancel = true;
+                          txtLastName.Focus();
+                          errorProvider1.SetError(txtLastName, "Last Name Should have a value!");
+          
+                      }
+                      else
+                      {
+                          e.Cancel = false;
+                          errorProvider1.SetError(txtLastName, "");
+                      }
+                  }
+              }
+          }
+
+##  Track Bar 
+
+
+            using System;
+            using System.Windows.Forms;
+            
+            namespace DateTimePaker
+            {
+                public partial class TrackBar : Form
+                {
+                    public TrackBar()
+                    {
+                        InitializeComponent();
+                    }
+            
+                    private void trackBar1_Scroll(object sender, EventArgs e)
+                    {
+                        label1.Text = trackBar1.Value.ToString();
+                    }
+                }
+            }
+
+## Numeric Up Down 
+
+
+                    using System;
+                    using System.Windows.Forms;
+                    
+                    namespace DateTimePaker
+                    {
+                        public partial class NumericUpDown : Form
+                        {
+                            public NumericUpDown()
+                            {
+                                InitializeComponent();
+                            }
+                    
+                            private void numericUpDown1_ValueChanged(object sender, EventArgs e)
+                            {
+                                label1.Text = numericUpDown1.Value.ToString();
+                            }
+                        }
+                    }
+
+
+## color Dialog  && Font Dialog &&   Save File Dialog && Open File Dialog  && Folder Dialog
+
+
+                             using System;
+                        using System.Windows.Forms;
+                        
+                        namespace DateTimePaker
+                        {
+                            public partial class ColorDialog : Form
+                            {
+                                public ColorDialog()
+                                {
+                                    InitializeComponent();
+                                    // Ensure the Apply event is connected to the handler
+                                    fontDialog1.Apply += new System.EventHandler(this.fontDialog1_Apply);
+                                    fontDialog1.HelpRequest += new System.EventHandler(this.fontDialog1_Help);
+                                }
+                        
+                                private void bntChange_BackColor_Click(object sender, EventArgs e)
+                                {
+                                    if (colorDialog1.ShowDialog() == DialogResult.OK)
+                                    {
+                                        textBox1.BackColor = colorDialog1.Color;
+                                    }
+                                }
+                        
+                                private void bntChange_for_Color_Click(object sender, EventArgs e)
+                                {
+                                    if (colorDialog1.ShowDialog() == DialogResult.OK)
+                                    {
+                                        textBox1.ForeColor = colorDialog1.Color;
+                                    }
+                                }
+                        
+                                private void bntChange_Font_Click(object sender, EventArgs e)
+                                {
+                                    fontDialog1.ShowColor = true;
+                                    fontDialog1.ShowApply = true;
+                                    fontDialog1.ShowEffects = true;
+                                    fontDialog1.ShowHelp = true;
+                        
+                                    fontDialog1.Font = textBox1.Font;
+                        
+                                    if (fontDialog1.ShowDialog() == DialogResult.OK)
+                                    {
+                                        textBox1.Font = fontDialog1.Font;
+                                        textBox1.ForeColor = fontDialog1.Color;
+                                    }
+                                }
+                        
+                                private void fontDialog1_Apply(object sender, EventArgs e)
+                                {
+                                    textBox1.Font = fontDialog1.Font;
+                                    textBox1.ForeColor = fontDialog1.Color;
+                                }
+                        
+                                private void fontDialog1_Help(object sender, EventArgs e)
+                                {
+                                    MessageBox.Show("Select a font, style, size, and color for the text.", "Font Dialog Help", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                }
+                        
+                                private void bntSave_File_Click(object sender, EventArgs e)
+                                {
+                        
+                                    //saveFileDialog1.InitialDirectory = @"c:\";
+                                    //saveFileDialog1.Title = "File";
+                                    //saveFileDialog1.DefaultExt = "txt";
+                                    //saveFileDialog1.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
+                                    //saveFileDialog1.FilterIndex = 2;
+                        
+                                    if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+                                    {
+                                        MessageBox.Show(saveFileDialog1.FileName);
+                                    }
+                                }
+                                private void bntOpen_File_Dialog_Click(object sender, EventArgs e)
+                                {
+                                    openFileDialog1.InitialDirectory = @"c:\";
+                                    openFileDialog1.Title = "File";
+                                    openFileDialog1.DefaultExt = "txt";
+                                    openFileDialog1.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
+                                    openFileDialog1.FilterIndex = 2;
+                        
+                                    if (openFileDialog1.ShowDialog() == DialogResult.OK)
+                                    {
+                                        MessageBox.Show(openFileDialog1.FileName);
+                                    }
+                                }
+                        
+                                private void bntOpen_Multi_File_Click(object sender, EventArgs e)
+                                {
+                                    openFileDialog1.Multiselect = true;
+                        
+                                    if (openFileDialog1.ShowDialog() == DialogResult.OK)
+                                    {
+                                        foreach (string file in openFileDialog1.FileNames)
+                                        {
+                                            MessageBox.Show(file);
+                                        }
+                                    }
+                                }
+                        
+                                private void bntFolderDialog_Click(object sender, EventArgs e)
+                                {
+                                    folderBrowserDialog1.ShowNewFolderButton = true;
+                        
+                                    if (folderBrowserDialog1.ShowDialog() == DialogResult.OK)
+                                    {
+                                        MessageBox.Show(folderBrowserDialog1.SelectedPath);
+                                    }
+                        
+                                }
+                            }
+                        }
+
 ## 
-
-
-
-
-
-
-
 
 
 
