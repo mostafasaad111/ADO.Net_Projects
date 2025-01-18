@@ -1357,7 +1357,35 @@
                             }
                         }
 
+## MDI 
+
+
+
+               
+              using System;
+              using System.Windows.Forms;
+              
+              namespace MDI_Sample
+              {
+                  public partial class Form1 : Form
+                  {
+                      public Form1()
+                      {
+                          InitializeComponent();
+                      }
+                      private Form frm2 = new Form2();
+              
+                      private void button1_Click(object sender, EventArgs e)
+                      {
+                          frm2.MdiParent = this;
+                          frm2.Show();
+                      }
+                  }
+              }
+
 ## 
+
+
 
 
 
